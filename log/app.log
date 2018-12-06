@@ -1,0 +1,25 @@
+I, [2018-12-06T16:38:55.251722 #13720]  INFO -- : 
+Request: GET /tests/27/?
+Parameters: {:id=>"27"}
+Handler: TestsController#show
+Response: 200 [text/html] 
+I, [2018-12-06T16:38:55.575620 #13720]  INFO -- : 
+Request: GET /tests/27/?
+Parameters: {:id=>"27"}
+Handler: TestsController#show
+Response: 200 [text/html] 
+I, [2018-12-06T16:38:55.948526 #13720]  INFO -- : 
+Request: GET /tests/27/?
+Parameters: {:id=>"27"}
+Handler: TestsController#show
+Response: 200 [text/html] 
+I, [2018-12-06T16:38:56.267754 #13720]  INFO -- : 
+Request: GET /tests/27/?
+Parameters: {:id=>"27"}
+Handler: TestsController#show
+Response: 200 [text/html] 
+I, [2018-12-06T16:38:56.544728 #13720]  INFO -- : 
+Request: GET /tests/27/?
+Parameters: {:id=>"27"}
+Handler: TestsController#show
+Response: 200 [text/html] 
