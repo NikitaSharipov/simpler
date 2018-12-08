@@ -1,25 +1,20 @@
-I, [2018-12-06T16:38:55.251722 #13720]  INFO -- : 
-Request: GET /tests/27/?
-Parameters: {:id=>"27"}
+I, [2018-12-08T16:41:54.773803 #6518]  INFO -- : 
+Request: GET /tests/3
+Parameters: {:id=>"3"}
 Handler: TestsController#show
 Response: 200 [text/html] 
-I, [2018-12-06T16:38:55.575620 #13720]  INFO -- : 
-Request: GET /tests/27/?
-Parameters: {:id=>"27"}
+I, [2018-12-08T16:48:56.885270 #6729]  INFO -- : 
+Request: GET /tests/3
+Parameters: {:id=>"3"}
 Handler: TestsController#show
 Response: 200 [text/html] 
-I, [2018-12-06T16:38:55.948526 #13720]  INFO -- : 
-Request: GET /tests/27/?
-Parameters: {:id=>"27"}
-Handler: TestsController#show
+I, [2018-12-08T16:48:59.671807 #6729]  INFO -- : 
+Request: GET /tests
+Parameters: {}
+Handler: TestsController#index
 Response: 200 [text/html] 
-I, [2018-12-06T16:38:56.267754 #13720]  INFO -- : 
-Request: GET /tests/27/?
-Parameters: {:id=>"27"}
-Handler: TestsController#show
-Response: 200 [text/html] 
-I, [2018-12-06T16:38:56.544728 #13720]  INFO -- : 
-Request: GET /tests/27/?
-Parameters: {:id=>"27"}
+I, [2018-12-08T16:49:02.386900 #6729]  INFO -- : 
+Request: GET /tests/1
+Parameters: {:id=>"1"}
 Handler: TestsController#show
 Response: 200 [text/html] 

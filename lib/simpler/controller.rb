@@ -25,7 +25,7 @@ module Simpler
     end
 
     def params
-      @params ||= @request.env['simpler.path_params']
+      @params ||= @request.env['simpler.path_params'].merge(request_params)
     end
 
     private
@@ -53,12 +53,8 @@ module Simpler
     end
 
     def render(option)
-      if option.is_a? Hash
-        @request.env['simpler.render_option'] = option
-        @response['Content-Type'] = 'text/plain'
-      else
-        @request.env['simpler.template'] = option
-      end
+      @response['Content-Type'] = 'text/plain' if option[:plain]
+      @request.env['simpler.render_option'] = option
     end
 
     def status(code)

@@ -1,7 +1,7 @@
 class TestsController < Simpler::Controller
 
   def index
-    render plain: "Go"
+    # render plain: "Go"
     #    status 201
     #    headers['Content-Type'] = 'text/plain'
   end

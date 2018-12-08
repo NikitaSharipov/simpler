@@ -7,6 +7,7 @@ module Simpler
       def initialize(method, path, controller, action)
         @method = method
         @path = path
+        @path_regexp = my_path_regexp(path)
         @controller = controller
         @action = action
       end
@@ -15,37 +16,22 @@ module Simpler
         @method == method && path_match?(path)
       end
 
-      def path_replace(path_parts)
+      def my_path_regexp(path)
+        path_parts = path.split('/')
         path_parts.map! do |part|
           if part[0] == ":"
+            part.delete!(':')
             part = /\d/
           else
             part
           end
         end
-
-        path_parts
+        str_regexp = path_parts.join("\\/")
+        /#{str_regexp}$/
       end
-
 
       def path_match?(path)
-        if @path.include?(':')
-          path_parts = split_path(@path)
-          path_parts_requested = split_path(path)
-
-          path_replace(path_parts)
-
-          path_parts.each_with_index do |path_part, index|
-            return false if path_part.match(path_parts_requested[index]).nil?
-          end
-
-        else
-          path.match(@path)
-        end
-      end
-
-      def split_path(path)
-        path.split('/').reject!(&:empty?)
+        path.match(@path_regexp)
       end
 
       def path_params(env)
@@ -54,16 +40,16 @@ module Simpler
         path_parts = split_path(@path)
         path_parts_requested = split_path(path)
 
-        params = Hash.new
-
-        path_parts.each_with_index do |path_part, index|
+        env['simpler.path_params'] = path_parts.each.with_index.with_object({}) do |(path_part, index), params|
           if path_part[0] == ":"
             path_part.delete!(':')
             params[path_part.to_sym] = path_parts_requested[index]
           end
         end
+      end
 
-        env['simpler.path_params'] = params
+      def split_path(path)
+        path.split('/').reject(&:empty?)
       end
 
     end

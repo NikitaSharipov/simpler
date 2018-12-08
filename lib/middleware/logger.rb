@@ -18,7 +18,6 @@ class AppLogger
 
     message_line = "\nRequest: #{env["REQUEST_METHOD"]} "
     message_line << env["PATH_INFO"]
-    message_line << "/?#{env["QUERY_STRING"]}" if env["QUERY_STRING"].empty?
 
     if env['simpler.controller']
       message_line << "\nParameters: #{env['simpler.controller'].params}"
