@@ -21,7 +21,7 @@ module Simpler
         path_parts.map! do |part|
           if part[0] == ":"
             part.delete!(':')
-            part = /\d/
+            /\d/
           else
             part
           end
