@@ -19,7 +19,13 @@ module Simpler
       send(action)
       write_response
 
+      @request.env['simpler.handler'] = "#{self.class.name}##{action}"
+
       @response.finish
+    end
+
+    def params
+      @params ||= @request.env['simpler.path_params'].merge(request_params)
     end
 
     private
@@ -42,12 +48,22 @@ module Simpler
       View.new(@request.env).render(binding)
     end
 
-    def params
+    def request_params
       @request.params
     end
 
-    def render(template)
-      @request.env['simpler.template'] = template
+    def render(option)
+      option = { template: 'option' } unless option.is_a? Hash
+      @response['Content-Type'] = 'text/plain' if option[:plain]
+      @request.env['simpler.render_option'] = option
+    end
+
+    def status(code)
+      @response.status = code
+    end
+
+    def headers
+      @response
     end
 
   end
