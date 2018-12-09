@@ -53,6 +53,7 @@ module Simpler
     end
 
     def render(option)
+      option = { template: 'option' } unless option.is_a? Hash
       @response['Content-Type'] = 'text/plain' if option[:plain]
       @request.env['simpler.render_option'] = option
     end

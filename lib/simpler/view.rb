@@ -10,7 +10,7 @@ module Simpler
     end
 
     def render(binding)
-      plain = Hash(render_option)[:plain]
+      plain = render_option[:plain] unless render_option.nil?
       if plain
         "#{render_option[:plain]}\n"
       else
@@ -34,7 +34,7 @@ module Simpler
     end
 
     def template
-      render_option[:template] if render_option.is_a? Hash
+      render_option[:template] unless render_option.nil?
     end
 
     def template_path
